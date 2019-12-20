@@ -1,0 +1,10 @@
+.Bar {
+	border:1px solid $color-gray;
+	text-align: center;
+	padding:2.5rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+}
