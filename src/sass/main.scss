@@ -1,0 +1,35 @@
+
+@import "abstracts/mixins";
+@import "abstracts/functions";
+@import "abstracts/variables";
+
+@import "base/animation";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/button";
+@import "components/dropdown";
+
+@import "layout/grid";
+
+@import "pages/progressbar";
+
+/*
+	Universal Selector for css reset for all browsers
+*/
+
+*,x::before,x::after {
+	margin:0;
+	padding:0;
+}
+
+/* Application wise font definition */
+
+html {
+	font-size: 62.5%; /* base size is set 10px for rem calculations */
+}
+
+body {
+	box-sizing: border-box; /* change box model so that border is not considered in total height & total width calculation*/
+}
