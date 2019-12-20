@@ -7,7 +7,6 @@ const ProgressBar = () => {
 
 	useEffect(() => {
 		async function loadBars() {
-			console.log(process.env)
 			let response = await fetch(
 				process.env.REACT_APP_REST_API
 			);
