@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Bar from './Bar';
+import Dropdown from './Dropdown';
+
+const initSelectedValue = "Bar 0";
 
 const ProgressBar = () => {
 
 	let [barObject, setbarObject] = useState({});
+	let [selectedValue, setSelectedValue] = useState(initSelectedValue);
+
+	let onChangeHandler = (e) => {
+		setSelectedValue(e.target.value);
+	}
 
 	useEffect(() => {
 		async function loadBars() {
@@ -29,6 +37,9 @@ const ProgressBar = () => {
 						return <Bar value={barValue} key={key} formatSymbol={process.env.REACT_APP_FORMAT_SYMBOL} />
 					})
 				}
+			</div>
+			<div className="ProgressBar__actioncontrols">
+				{barObject && <Dropdown dropDownValues={barObject} onChange={onChangeHandler} datatype="object" value={selectedValue} />}
 			</div>
 		</div>
 	)
