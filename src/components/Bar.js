@@ -1,5 +1,7 @@
 import React from 'react';
 import { formatValue } from '../util/format';
+import PropTypes from 'prop-types';
+
 
 const Bar = (props) => {
 	let displayValue = props.value;
@@ -11,6 +13,11 @@ const Bar = (props) => {
 			<span className="Bar__value">{displayValue}</span>
 		</div>
 	)
+}
+
+Bar.propTypes = {
+	value: PropTypes.any.isRequired,
+	formatSymbol: PropTypes.string
 }
 
 export default Bar;
