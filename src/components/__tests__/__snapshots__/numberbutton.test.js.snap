@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1 1`] = `
+<button
+  className="NumberButton"
+  data-testid="numberbutton"
+  onClick={[Function]}
+  value={-5}
+>
+  -5
+</button>
+`;
