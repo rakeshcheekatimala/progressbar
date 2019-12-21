@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Dropdown = (props) => {
 	return (
-		<div className="SelectBox">
+		<div className="select">
 			<select component="select" data-testid="select"
 				onChange={props.onChange}
 				value={props.selectedValue}
