@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rakeshcheekatimala/progressbar -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true rakeshcheekatimala/progressbar npm run test -- --coverage --watchAll=false
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "progressbar"
+  env: "Progressbar-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-583088502850"
+  bucket_path: "progressbar"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
