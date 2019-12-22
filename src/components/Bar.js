@@ -4,18 +4,25 @@ import PropTypes from 'prop-types';
 
 
 const Bar = (props) => {
+	let { value, formatSymbol, maxLimitValue, limitExceedColor } = props;
 	let displayValue = props.value;
 	let excessColor = parseInt(displayValue) === 0 ? '' : 'Bar--normal'; // default value is Bar--normal if its greater than zero
-	let maxLimitValue = props.maxLimitValue;
+
+	let calcWidthValue = displayValue;
 	if (props.formatSymbol) {
-		displayValue = formatValue(props.value, props.formatSymbol);
+		displayValue = formatValue(value, formatSymbol);
 	}
 	if (maxLimitValue && props.limitExceedColor) {
-		excessColor = extractNumberWithoutSymbol(displayValue, props.formatSymbol) > maxLimitValue ? "Bar--" + props.limitExceedColor : excessColor
+		excessColor = extractNumberWithoutSymbol(displayValue, formatSymbol) > maxLimitValue ? "Bar--" + limitExceedColor : excessColor
 	}
+	calcWidthValue = parseInt(value) >= maxLimitValue ? maxLimitValue : value;
+	calcWidthValue = calcWidthValue + "%"
 	return (
-		<div className={`Bar ${excessColor}`} data-testid="Bar" >
-			<span className="Bar__value">{displayValue}</span>
+		<div className={`Bar`} data-testid="Bar" >
+			<div className={`Bar__color ${excessColor}`} style={{ "maxWidth": calcWidthValue }}>
+				<span className="Bar__value">{displayValue}</span>
+			</div>
+
 		</div>
 	)
 }
