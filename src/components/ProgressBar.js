@@ -9,7 +9,7 @@ const ProgressBar = () => {
 	let [totalButtons, setTotalButtons] = useState([]);
 	let [barObject, setbarObject] = useState({});
 	let [selectedValue, setSelectedValue] = useState(initSelectedValue);
-	let [maxLimitValue, setMaxLimitValue] = useState(0);
+	const maxLimitValue = 100;
 
 	let onChangeHandler = (e) => {
 		setSelectedValue(e.target.value);
@@ -33,7 +33,6 @@ const ProgressBar = () => {
 				resultObj["Bar " + i] = json.bars[i];
 			}
 			setbarObject(resultObj); // setting the resultObj to display the bars
-			setMaxLimitValue(json.limit);
 			setTotalButtons(json.buttons);
 		}
 		loadBars();
