@@ -27,3 +27,9 @@ it("renders bar with correct value with formatSymbol", () => {
 	expect(getByTestId("Bar")).toHaveTextContent("$");
 	expect(getByTestId("Bar")).toHaveTextContent("15");
 });
+
+it("renders bar with correct value with formatSymbol and maximumLimitValue ", () => {
+	const { getByTestId } = render(<Bar value="50" formatSymbol="$" maxLimitValue={150} />);
+	expect(getByTestId("Bar")).toHaveTextContent("$");
+	expect(getByTestId("Bar")).toHaveTextContent("33");
+});
