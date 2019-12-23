@@ -17,7 +17,7 @@
 	}
 	&__value{
 		position: absolute;
-		left: 50%;
+		left: calc(50% - 4.2rem);
 		padding: 2.1rem;
 	}
 

@@ -63,7 +63,6 @@ const ProgressBar = () => {
 							return <NumberButton value={barValue} key={barValue} onClick={onClickHanlder} />
 						})
 					}
-
 				</div>
 			</div>
 

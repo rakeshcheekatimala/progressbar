@@ -9,3 +9,9 @@ export const displayNumberSign = (number) => {
 export const extractNumberWithoutSymbol = (number, symbol) => {
 	return number.split(symbol)[0];
 }
+
+export const calculatePercentage = (value, maximumValue) => {
+	value = parseInt(value);
+	maximumValue = parseInt(maximumValue);
+	return Math.round((value * 100) / maximumValue);
+}
