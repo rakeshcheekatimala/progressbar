@@ -10,7 +10,7 @@ const ProgressBar = () => {
 	let [barObject, setbarObject] = useState({});
 	let [selectedValue, setSelectedValue] = useState(initSelectedValue);
 	const [maxLimitValue, setMaximumValue] = useState(100);
-	let [isLoading, setIsLoading] = useState(true);
+	let [isLoading, setIsLoading] = useState(false);
 
 	let onChangeHandler = (e) => {
 		setSelectedValue(e.target.value);
@@ -44,6 +44,7 @@ const ProgressBar = () => {
 	return (
 		<div className="ProgressBar">
 			<h1 className="ProgressBar__title">ProgressBar Demo</h1>
+			{isLoading === false ? <div className="ProgressBar__loading">Loading ... </div> : null}
 			{isLoading && <div className="ProgressBar__list">
 				{
 					Object.entries(barObject).map(([key, barValue]) => {
