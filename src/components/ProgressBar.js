@@ -9,7 +9,8 @@ const ProgressBar = () => {
 	let [totalButtons, setTotalButtons] = useState([]);
 	let [barObject, setbarObject] = useState({});
 	let [selectedValue, setSelectedValue] = useState(initSelectedValue);
-	const maxLimitValue = 100;
+	const [maxLimitValue, setMaximumValue] = useState(100);
+	let [isLoading, setIsLoading] = useState(true);
 
 	let onChangeHandler = (e) => {
 		setSelectedValue(e.target.value);
@@ -34,6 +35,8 @@ const ProgressBar = () => {
 			}
 			setbarObject(resultObj); // setting the resultObj to display the bars
 			setTotalButtons(json.buttons);
+			setMaximumValue(json.limit);
+			setIsLoading(true);
 		}
 		loadBars();
 	}, []);
@@ -41,16 +44,17 @@ const ProgressBar = () => {
 	return (
 		<div className="ProgressBar">
 			<h1 className="ProgressBar__title">ProgressBar Demo</h1>
-			<div className="ProgressBar__list">
+			{isLoading && <div className="ProgressBar__list">
 				{
 					Object.entries(barObject).map(([key, barValue]) => {
 						return <Bar value={barValue} key={key} formatSymbol={process.env.REACT_APP_FORMAT_SYMBOL} limitExceedColor="red" maxLimitValue={maxLimitValue} />
 					})
 				}
 			</div>
+			}
 			<div className="ProgressBar__actioncontrols">
 				<div className="ProgressBar__selectcontainer">
-					{barObject && <Dropdown dropDownValues={barObject} onChange={onChangeHandler} datatype="object" value={selectedValue} />}
+					{Object.entries(barObject).length > 0 && <Dropdown dropDownValues={barObject} onChange={onChangeHandler} datatype="object" value={selectedValue} />}
 				</div>
 
 				<div className="ProgressBar__buttongroup">
@@ -62,6 +66,7 @@ const ProgressBar = () => {
 
 				</div>
 			</div>
+
 			<br />
 
 		</div>
