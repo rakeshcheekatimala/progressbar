@@ -13,7 +13,7 @@ Based on the User selection of dropdown and button click the Bar Value changes.
 - [x] Jest Setup and Unit test Cases for the components used in the app.
 - [x] Cypress Setup and e2e test cases for automation.
 - [x] Adding PropType Validation for Components
-- [x] Implemented Docker fiels  and Travis CI Setup to deploy on AWS (EBS)
+- [x] Implemented Docker files  and Travis CI Setup to deploy on AWS (EBS)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
