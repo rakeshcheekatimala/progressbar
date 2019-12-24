@@ -24,4 +24,6 @@ it("return value with the calculate percentage for the max value as i/p", () => 
 	let value = calculatePercentage(50, 150);
 	expect(value).toBe(33);
 
+	value = calculatePercentage(150, 150);
+	expect(value).toBe(100);
 });

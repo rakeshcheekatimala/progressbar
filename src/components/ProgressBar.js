@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Bar from './Bar';
 import Dropdown from './Dropdown';
 import NumberButton from './NumberButton';
+import BarService from './services/BarService';
 
 const initSelectedValue = "Bar 0";
 
@@ -25,10 +26,7 @@ const ProgressBar = () => {
 
 	useEffect(() => {
 		async function loadBars() {
-			let response = await fetch(
-				process.env.REACT_APP_REST_API
-			);
-			let json = await response.json();
+			let json = await BarService.getBars();
 			let resultObj = {};
 			for (let i = 0; i < json.bars.length; i++) {
 				resultObj["Bar " + i] = json.bars[i];
@@ -44,7 +42,7 @@ const ProgressBar = () => {
 	return (
 		<div className="ProgressBar">
 			<h1 className="ProgressBar__title">ProgressBar Demo</h1>
-			{isLoading === false ? <div className="ProgressBar__loading">Loading ... </div> : null}
+			{isLoading === false ? <div className="ProgressBar__loading" data-testid="loading">Loading data...</div> : null}
 			{isLoading && <div className="ProgressBar__list">
 				{
 					Object.entries(barObject).map(([key, barValue]) => {
@@ -58,7 +56,7 @@ const ProgressBar = () => {
 					{Object.entries(barObject).length > 0 && <Dropdown dropDownValues={barObject} onChange={onChangeHandler} datatype="object" value={selectedValue} />}
 				</div>
 
-				<div className="ProgressBar__buttongroup">
+				<div className="ProgressBar__buttongroup" data-testid="buttongroup">
 					{
 						totalButtons.map((barValue) => {
 							return <NumberButton value={barValue} key={barValue} onClick={onClickHanlder} />
@@ -68,7 +66,7 @@ const ProgressBar = () => {
 			</div>
 
 			<br />
-
+			{isLoading && <div data-testid="resolved"></div>}
 		</div>
 	)
 }
