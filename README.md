@@ -16,6 +16,7 @@ Based on the User selection of dropdown and button click the Bar Value changes.
 - [x] Implemented Docker files  and Travis CI Setup to deploy on AWS (EBS)
 - [x] Implemented StoryBook and Stories related to the components
 - [x] Adding husky which runs the linter and formats the source code before commit 
+- [x] Added scripts to run the code coverage
 
 
 
@@ -24,6 +25,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run coverage`
+Runs all the test cases and generates a code coverage report under coverage folder
 
 ### `yarn start`
 
