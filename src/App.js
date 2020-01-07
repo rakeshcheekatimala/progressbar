@@ -1,4 +1,5 @@
 import React from 'react';
+import './sass/main.scss';
 import ProgressBar from './components/ProgressBar';
 
 function App() {
