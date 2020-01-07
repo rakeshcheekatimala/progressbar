@@ -14,6 +14,9 @@ Based on the User selection of dropdown and button click the Bar Value changes.
 - [x] Cypress Setup and e2e test cases for automation.
 - [x] Adding PropType Validation for Components
 - [x] Implemented Docker files  and Travis CI Setup to deploy on AWS (EBS)
+- [x] Implemented StoryBook and Stories related to the components
+- [x] Adding husky which runs the linter and formats the source code before commit 
+
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
