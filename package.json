@@ -18,7 +18,8 @@
 		"e2e": "cypress open",
 		"storybook": "start-storybook -p 9009 -s public",
 		"build-storybook": "build-storybook -s public",
-		"coverage": "yarn test --coverage --watchAll=false --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js"
+		"coverage": "yarn test --coverage --watchAll=false --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js",
+		"visual:testing": "percy exec -- cypress run"
 	},
 	"jest": {
 		"coveragePathIgnorePatterns": [
@@ -57,6 +58,7 @@
 		]
 	},
 	"devDependencies": {
+		"@percy/cypress": "^2.2.0",
 		"@storybook/addon-actions": "^5.2.8",
 		"@storybook/addon-links": "^5.2.8",
 		"@storybook/addons": "^5.2.8",
