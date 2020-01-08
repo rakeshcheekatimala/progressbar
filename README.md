@@ -17,6 +17,7 @@ Based on the User selection of dropdown and button click the Bar Value changes.
 - [x] Implemented StoryBook and Stories related to the components
 - [x] Adding husky which runs the linter and formats the source code before commit 
 - [x] Added scripts to run the code coverage
+- [x] Added Visual Testing test-cases and scripts to run the visual testing
 
 
 
@@ -25,6 +26,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run visual:testing`
+Runs all the visual test cases using cypress and generates a snapshot,uploads it to the Percy to compare the differences for approval/rejection.
+
+Steps: 
+ * Create a acccount with https://percy.io
+ * Create a project in percy
+ * Explore more https://percy.io/
 
 ### `npm run coverage`
 Runs all the test cases and generates a code coverage report under coverage folder
